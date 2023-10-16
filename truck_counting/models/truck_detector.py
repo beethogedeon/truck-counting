@@ -1,19 +1,16 @@
-import PIL
-from torch.cuda import is_available
-import numpy as np
-import cv2
-from truck_counting.loaders import load_model
-import supervision as sv
-from pydantic import BaseModel
-from fastapi.responses import StreamingResponse
 from typing import Union
 
+import cv2
+import supervision as sv
+from pydantic import BaseModel
+from torch.cuda import is_available
 
-class DetectorResponse:
+from truck_counting.loaders import load_model
 
-    def __init__(self, frame: np.ndarray, nbTrucks: int):
-        self.frame = frame
-        self.nbTrucks = nbTrucks
+
+class DetectorResponse(BaseModel):
+    frame: None
+    nbTrucks: int
 
 
 class TruckDetector:

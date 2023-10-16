@@ -1,13 +1,11 @@
 from os.path import join
 
-from truck_counting.models import TruckDetector, DetectorResponse
-
+import numpy as np
+from PIL import Image
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
 
-from pydantic import BaseModel
-import numpy as np
-from PIL import Image
+from truck_counting.models import TruckDetector, DetectorResponse
 
 api = FastAPI(title="Truck Counting")
 
@@ -21,7 +19,7 @@ def index(request: Request):
     return RedirectResponse(join(request.url.path, "docs"))
 
 
-@api.get("/detect", tags=["General"], response_model=DetectorResponse)
+@api.get("/detect", response_model=DetectorResponse, tags=["General"])
 def run(request: DetectRequest):
     truck_detector = TruckDetector(request.source)
     truck_detector()
