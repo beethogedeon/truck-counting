@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "truck-counting"
+version = "0.0.1"
+description = "Detect and count truck from images, videos or IP Camera."
+authors = ["Gédéon GBEDONOU<beethogedeon@gmail.com>","Jonathan Hans Agoua <"]
+homepage = "https://github.com/beethogedeon/truck-counting"
+repository = "https://github.com/beethogedeon/truck-counting"
+documentation = "https://github.com/beethogedeon/truck-counting"
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10.12"
+numpy = "^1.24.3"
+ultralytics = "^8.0.194"
+opencv-python = "^1.7.0.72"
+fastapi = {extras = ["all"], version = "^0.100.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+pytest-asyncio = "^0.15.1"
+flake8 = "^3.9.2"
+black = "^21.7b0"
+isort = "^5.9.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

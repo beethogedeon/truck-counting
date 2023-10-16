@@ -1,0 +1,1 @@
+from truck_counting.loaders.model_loader import load_model
